@@ -107,9 +107,11 @@ public class ItemKit implements KitDefinition {
         }
       }
 
+      //put loadout stuff here
+
       // Put the remaining kit slotted items into their designated inv slots.
       // If a slot is occupied, add the stack to displacedStacks.
-      for (Entry<Slot, ItemStack> kitEntry : event.getSlotItems().entrySet()) {
+      /*for (Entry<Slot, ItemStack> kitEntry : event.getSlotItems().entrySet()) {
         Slot kitSlot = kitEntry.getKey();
         ItemStack kitStack = kitEntry.getValue();
 
@@ -120,11 +122,11 @@ public class ItemKit implements KitDefinition {
             displacedItems.add(kitStack);
           }
         }
-      }
+      }*/
     }
 
     // Add the kit's free items to displacedItems
-    displacedItems.addAll(event.getFreeItems());
+    //displacedItems.addAll(event.getFreeItems());
   }
 
   @Override
