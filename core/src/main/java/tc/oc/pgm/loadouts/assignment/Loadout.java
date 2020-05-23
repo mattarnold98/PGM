@@ -6,7 +6,7 @@ import tc.oc.pgm.loadouts.ItemType;
 import java.util.List;
 import java.util.Map;
 
-public interface Loadout {
+public class Loadout {
 
     ItemType forSlot(Slot slot);
 
