@@ -1,9 +1,9 @@
-package tc.oc.pgm.loadouts.graph.types;
+package tc.oc.pgm.loadouts.inference.types;
 
-import tc.oc.pgm.loadouts.graph.Parsers;
-import tc.oc.pgm.loadouts.graph.SingleTypeNode;
+import tc.oc.pgm.loadouts.inference.InferenceParser;
+import tc.oc.pgm.loadouts.inference.SingleTypeNode;
 import tc.oc.pgm.loadouts.ItemType;
-import tc.oc.pgm.loadouts.ProbabilityMatrix;
+import tc.oc.pgm.loadouts.inference.ProbabilityMatrix;
 import org.bukkit.enchantments.Enchantment;
 import org.bukkit.inventory.ItemStack;
 
@@ -52,7 +52,7 @@ public class MeleeWeaponNode extends SingleTypeNode {
             return 0d;
         }
 
-        return 0.9 + Parsers.parsers().needScore(ItemType.TOOL_TYPE, stack) * 0.05 + 0.2 * stack.getEnchantmentLevel(Enchantment.DAMAGE_ALL);
+        return 0.9 + InferenceParser.parsers().needScore(ItemType.TOOL_TYPE, stack) * 0.05 + 0.2 * stack.getEnchantmentLevel(Enchantment.DAMAGE_ALL);
     }
 
     private double sharpItemScore(ItemStack stack) {
@@ -65,7 +65,7 @@ public class MeleeWeaponNode extends SingleTypeNode {
     }
 
     private double toolWeaponScore(ItemStack stack) {
-        ProbabilityMatrix matrix = Parsers.parsers().needItem(ItemType.TOOL).matrix(stack);
+        ProbabilityMatrix matrix = InferenceParser.parsers().needItem(ItemType.TOOL).matrix(stack);
         if(matrix.weight(ItemType.TOOL) == 0) {
             return 0d;
         }

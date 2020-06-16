@@ -56,6 +56,7 @@ import tc.oc.pgm.killreward.KillRewardMatchModule;
 import tc.oc.pgm.killreward.KillRewardModule;
 import tc.oc.pgm.kits.KitMatchModule;
 import tc.oc.pgm.kits.KitModule;
+import tc.oc.pgm.loadouts.LoadoutMatchModule;
 import tc.oc.pgm.modes.ObjectiveModesMatchModule;
 import tc.oc.pgm.modes.ObjectiveModesModule;
 import tc.oc.pgm.modules.ArrowRemovalMatchModule;
@@ -142,6 +143,8 @@ public interface Modules {
 
   static void registerAll() {
     // MatchModules that are always created
+    register(LoadoutMatchModule.class, LoadoutMatchModule::new);
+
     register(BossBarMatchModule.class, BossBarMatchModule::new);
     register(EventFilterMatchModule.class, EventFilterMatchModule::new);
     register(MultiTradeMatchModule.class, MultiTradeMatchModule::new);

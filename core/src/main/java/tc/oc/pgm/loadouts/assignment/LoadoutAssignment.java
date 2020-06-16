@@ -1,10 +1,9 @@
 package tc.oc.pgm.loadouts.assignment;
 
-import tc.oc.pgm.api.player.MatchPlayer;
-
-import java.util.Map;
+import tc.oc.pgm.loadouts.Loadout;
+import tc.oc.pgm.loadouts.LoadoutState;
 
 public interface LoadoutAssignment {
 
-    void applyLoadout(MatchPlayer player, Loadout loadout, Map<>)
+    void applyLoadout(Loadout loadout, LoadoutState loadoutState);
 }

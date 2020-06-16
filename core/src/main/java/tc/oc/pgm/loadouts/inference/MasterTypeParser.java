@@ -1,7 +1,6 @@
-package tc.oc.pgm.loadouts.graph;
+package tc.oc.pgm.loadouts.inference;
 
 import com.google.common.collect.Lists;
-import tc.oc.pgm.loadouts.ProbabilityMatrix;
 import org.bukkit.inventory.ItemStack;
 
 public class MasterTypeParser extends ParentNode {

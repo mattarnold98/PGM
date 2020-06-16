@@ -1,4 +1,4 @@
-package tc.oc.pgm.loadouts.graph;
+package tc.oc.pgm.loadouts.inference;
 
 import tc.oc.pgm.loadouts.ItemType;
 

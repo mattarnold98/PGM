@@ -1,4 +1,4 @@
-package tc.oc.pgm.loadouts;
+package tc.oc.pgm.loadouts.inference;
 
 import com.google.common.collect.Lists;
 import com.google.common.collect.Sets;

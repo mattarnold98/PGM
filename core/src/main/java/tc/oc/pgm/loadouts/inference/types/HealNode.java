@@ -1,6 +1,6 @@
-package tc.oc.pgm.loadouts.graph.types;
+package tc.oc.pgm.loadouts.inference.types;
 
-import tc.oc.pgm.loadouts.graph.SingleTypeNode;
+import tc.oc.pgm.loadouts.inference.SingleTypeNode;
 import tc.oc.pgm.loadouts.ItemType;
 import org.bukkit.Material;
 import org.bukkit.inventory.ItemStack;
@@ -20,7 +20,7 @@ public class HealNode extends SingleTypeNode {
         }
 
         if(stack.getType() == Material.POTION && stack.getItemMeta() instanceof PotionMeta) {
-            PotionMeta meta = (PotionMeta) stack;
+            PotionMeta meta = (PotionMeta) stack.getItemMeta();
             if(meta.hasCustomEffect(PotionEffectType.ABSORPTION)
                     || meta.hasCustomEffect(PotionEffectType.HEAL)
                     || meta.hasCustomEffect(PotionEffectType.HEALTH_BOOST)) {

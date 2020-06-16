@@ -1,8 +1,6 @@
-package tc.oc.pgm.loadouts.graph;
+package tc.oc.pgm.loadouts.inference;
 
 import tc.oc.pgm.loadouts.ItemType;
-import tc.oc.pgm.loadouts.ProbabilityMatrix;
-import tc.oc.pgm.loadouts.ProbabilityMatrixCollector;
 import org.bukkit.inventory.ItemStack;
 
 import java.util.Collection;

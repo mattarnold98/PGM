@@ -1,4 +1,6 @@
-package tc.oc.pgm.loadouts;
+package tc.oc.pgm.loadouts.inference;
+
+import tc.oc.pgm.loadouts.ItemType;
 
 import java.util.Collection;
 import java.util.EnumMap;
@@ -43,5 +45,20 @@ public class MapProbabilityMatrix implements ProbabilityMatrix {
     @Override
     public Map<ItemType, Double> weights() {
         return map;
+    }
+
+    @Override
+    public ItemType maxWeighted() {
+        double max = 0;
+        //anything as the default maxType
+        ItemType maxType = null;
+        for (Map.Entry<ItemType, Double> entry : map.entrySet()) {
+            if(entry.getValue() > max) {
+                maxType = entry.getKey();
+                max = entry.getValue();
+            }
+        }
+
+        return maxType;
     }
 }

@@ -9,6 +9,7 @@ import tc.oc.pgm.api.Datastore;
 import tc.oc.pgm.api.map.MapActivity;
 import tc.oc.pgm.api.player.Username;
 import tc.oc.pgm.api.setting.Settings;
+import tc.oc.pgm.loadouts.preferences.LoadoutPreferences;
 
 @SuppressWarnings({"UnstableApiUsage"})
 public class CacheDatastore implements Datastore {
@@ -17,6 +18,7 @@ public class CacheDatastore implements Datastore {
   private final LoadingCache<UUID, Username> usernames;
   private final LoadingCache<UUID, Settings> settings;
   private final LoadingCache<String, MapActivity> activities;
+  private final LoadingCache<UUID, LoadoutPreferences> loadoutPreferences;
 
   public CacheDatastore(Datastore datastore) {
     this.datastore = datastore;
@@ -50,6 +52,11 @@ public class CacheDatastore implements Datastore {
                     return datastore.getMapActivity(name);
                   }
                 });
+      this.loadoutPreferences =
+              CacheBuilder.newBuilder()
+                      .softValues()
+                      .maximumSize(Math.min(100, Bukkit.getMaxPlayers()))
+                      .build(CacheLoader.from(datastore::getLoadoutPreferences));
   }
 
   @Override
@@ -68,6 +75,11 @@ public class CacheDatastore implements Datastore {
   }
 
   @Override
+  public LoadoutPreferences getLoadoutPreferences(UUID uuid) {
+    return loadoutPreferences.getUnchecked(uuid);
+  }
+
+    @Override
   public void close() {
     datastore.close();
 

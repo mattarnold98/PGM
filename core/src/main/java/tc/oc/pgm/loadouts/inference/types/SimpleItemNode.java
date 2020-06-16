@@ -1,6 +1,6 @@
-package tc.oc.pgm.loadouts.graph.types;
+package tc.oc.pgm.loadouts.inference.types;
 
-import tc.oc.pgm.loadouts.graph.SingleTypeNode;
+import tc.oc.pgm.loadouts.inference.SingleTypeNode;
 import tc.oc.pgm.loadouts.ItemType;
 import org.bukkit.Material;
 import org.bukkit.inventory.ItemStack;

@@ -10,6 +10,7 @@ import org.bukkit.entity.HumanEntity;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.PlayerInventory;
 import tc.oc.pgm.api.player.MatchPlayer;
+import tc.oc.pgm.loadouts.LoadoutMatchModule;
 import tc.oc.pgm.util.inventory.InventoryUtils;
 
 public class ItemKit implements KitDefinition {
@@ -108,6 +109,7 @@ public class ItemKit implements KitDefinition {
       }
 
       //put loadout stuff here
+      player.getMatch().needModule(LoadoutMatchModule.class).applyLoadout(player, this);
 
       // Put the remaining kit slotted items into their designated inv slots.
       // If a slot is occupied, add the stack to displacedStacks.

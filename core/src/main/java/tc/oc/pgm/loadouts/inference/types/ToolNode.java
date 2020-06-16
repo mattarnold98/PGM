@@ -1,12 +1,12 @@
-package tc.oc.pgm.loadouts.graph.types;
+package tc.oc.pgm.loadouts.inference.types;
 
 import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
-import tc.oc.pgm.loadouts.graph.MultiTypeNode;
-import tc.oc.pgm.loadouts.graph.Parsers;
+import tc.oc.pgm.loadouts.inference.MultiTypeNode;
+import tc.oc.pgm.loadouts.inference.InferenceParser;
 import tc.oc.pgm.loadouts.ItemType;
-import tc.oc.pgm.loadouts.MapProbabilityMatrix;
-import tc.oc.pgm.loadouts.ProbabilityMatrix;
+import tc.oc.pgm.loadouts.inference.MapProbabilityMatrix;
+import tc.oc.pgm.loadouts.inference.ProbabilityMatrix;
 import org.bukkit.enchantments.Enchantment;
 import org.bukkit.inventory.ItemStack;
 
@@ -24,7 +24,7 @@ public class ToolNode extends MultiTypeNode {
         double score = 0d;
 
         if(toolType != null) {
-            score = Parsers.parsers().needScore(ItemType.TOOL_TYPE, stack);
+            score = InferenceParser.parsers().needScore(ItemType.TOOL_TYPE, stack);
         }
 
         int level = stack.getEnchantmentLevel(Enchantment.DIG_SPEED);
